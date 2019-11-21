@@ -16,6 +16,7 @@
     "axios": "0.19.0",
     "lodash": "4.17.15",
     "nuxt": "^2.5.1",
-    "reqlim": "^0.0.0"
+    "reqlim": "^0.0.0",
+    "vue-json-viewer": "2.2.8"
   }
 }
