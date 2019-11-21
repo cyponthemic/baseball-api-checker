@@ -33,6 +33,9 @@ const new_game_id = 607275;
 
 const getGame = id =>
   axios.get(`https://statsapi.mlb.com/api/v1/game/${id}/feed/live`);
+
+const getGameNew = id =>
+  axios.get(`https://statsapi.mlb.com/api/v1.1/game/${id}/feed/live`);
 export default {
   components: {
     Logo,
@@ -41,6 +44,8 @@ export default {
 
   watch: {
     searchKey(value) {
+      if (!value) return;
+
       this.$router.push({ path: this.$route.path, query: { search: value } });
     }
   },
@@ -68,7 +73,7 @@ export default {
     return {
       searchKey: query.search,
       oldAPI: await getGame(old_game_id).then(({ data }) => data),
-      newAPI: await getGame(new_game_id).then(({ data }) => data)
+      newAPI: await getGameNew(new_game_id).then(({ data }) => data)
     };
   }
 };
