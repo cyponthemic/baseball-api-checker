@@ -7,11 +7,15 @@
     <div class="d-flex">
       <div>
         <h2>Old APi</h2>
-        <json-viewer :value="filteredOld" :expand-depth="5" copyable boxed sort></json-viewer>
+        <client-only loading="Json Loading...">
+          <json-viewer :value="filteredOld" :expand-depth="5" copyable boxed sort></json-viewer>
+        </client-only>
       </div>
       <div>
         <h2>New APi</h2>
-        <json-viewer :value="filteredNew" :expand-depth="5" copyable boxed sort></json-viewer>
+        <client-only loading="Json Loading...">
+          <json-viewer :value="filteredNew" :expand-depth="5" copyable boxed sort></json-viewer>
+        </client-only>
       </div>
     </div>
   </section>
@@ -22,7 +26,7 @@ import axios from "axios";
 import { get } from "lodash";
 import Logo from "~/components/Logo.vue";
 import IconLink from "~/components/IconLink.vue";
-import 'vue-json-viewer/style.css'
+import "vue-json-viewer/style.css";
 
 const old_game_id = 570164;
 const new_game_id = 607275;
