@@ -86,7 +86,7 @@ export default {
   display: flex;
 }
 
-.d-flex div {
+.d-flex > div {
   width: 50%;
   text-align: left;
   overflow: hidden;
