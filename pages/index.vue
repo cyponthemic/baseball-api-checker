@@ -46,11 +46,14 @@ export default {
   },
   computed: {
     filteredOld() {
+      const filtered = this.oldAPI;
+      delete filtered.copyright;
+
       if (!this.searchKey) {
-        return this.oldAPI;
+        return filtered;
       }
 
-      return get(this.oldAPI, this.searchKey) || {};
+      return get(filtered, this.searchKey) || {};
     },
     filteredNew() {
       if (!this.searchKey) {
